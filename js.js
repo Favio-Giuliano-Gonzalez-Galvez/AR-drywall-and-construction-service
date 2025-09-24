@@ -173,3 +173,137 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========== CONTACT FORM FUNCTIONALITY ==========
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Obtener los valores del formulario
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        
+        // Validar campos requeridos
+        if (!name || !phone || !service || !message) {
+            alert('Please fill in all required fields (*)');
+            return;
+        }
+        
+        // Crear el asunto del correo
+        const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+        const subject = `New Project Estimate Request - ${serviceText}`;
+        
+        // Crear el cuerpo del correo
+        const body = `Hello Adonis,
+
+I would like to request a free estimate for your services.
+
+Project Details:
+- Name: ${name}
+- Phone: ${phone}
+- Email: ${email || 'Not provided'}
+- Service Needed: ${serviceText}
+- Project Description: ${message}
+
+Please contact me at your earliest convenience.
+
+Thank you!`;
+
+        // Codificar para URL
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(body);
+        
+        // Crear el link de mailto
+        const mailtoLink = `mailto:adonisaromero@icloud.com?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Cambiar texto del botón mientras procesa
+        const submitButton = this.querySelector('.form__submit-button');
+        const originalText = submitButton.querySelector('.button__text').textContent;
+        
+        submitButton.querySelector('.button__text').textContent = 'Opening Email...';
+        submitButton.disabled = true;
+        
+        // Abrir el cliente de correo
+        setTimeout(() => {
+            window.location.href = mailtoLink;
+            
+            // Resetear el formulario después de 2 segundos
+            setTimeout(() => {
+                contactForm.reset();
+                submitButton.querySelector('.button__text').textContent = originalText;
+                submitButton.disabled = false;
+                
+                // Mostrar mensaje de confirmación
+                alert('Thank you! Your email client is opening with your message pre-filled. Please click "Send" to complete your request.');
+            }, 2000);
+            
+        }, 1000);
+    });
+}
+
+// ========== SMOOTH SCROLL FOR NAVIGATION ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = targetElement.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ========== SMOOTH SCROLL FOR NAVIGATION ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = targetElement.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
