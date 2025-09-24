@@ -779,9 +779,6 @@ img {
     height: 250px;
   }
 
-  .gallery-column{
-    transform: translate(-5% , 0);
-  }
 }
 
 /* Para tablets y escritorio */
@@ -1500,3 +1497,4 @@ img {
     display: none;
   }
 }
+
