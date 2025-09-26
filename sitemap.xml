@@ -7,17 +7,18 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://adonisdrywall.com/#services</loc>
+        <loc>https://www.adonisdrywall.com/#services</loc>
         <lastmod>2024-12-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://adonisdrywall.com/#gallery</loc>
+        <loc>https://www.adonisdrywall.com/#gallery</loc>
         <lastmod>2024-12-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
 </urlset>
+
 
