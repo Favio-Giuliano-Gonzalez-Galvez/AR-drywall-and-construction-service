@@ -3,4 +3,5 @@ Allow: /
 Disallow: /admin/
 
 
-Sitemap: https://adonisdrywall.com/sitemap.xml
+Sitemap: https://www.adonisdrywall.com/sitemap.xml
+
